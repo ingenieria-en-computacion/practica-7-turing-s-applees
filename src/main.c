@@ -1,5 +1,5 @@
 #define LINKED_LIST_IMPLEMENTATION
-#include "linkedlist.h"
+#include "linked_list.h"
 #include <stdio.h>
 
 void print_int(int value) {
@@ -26,18 +26,18 @@ int main() {
     printf("Lista: ");
     list_int_print(nums, print_int); // Usar función concreta para evitar errores
     
-    list_int_destroy(nums);
+    LIST_DESTROY(nums);
     
     List_char *chars = list_char_create();
-    list_char_append(chars, 'a');
-    list_char_append(chars, 'b');
-    list_char_append(chars, 'c');
-    list_char_append(chars, 'd');
-    list_char_append(chars, 'e');
+    LIST_APPEND(chars, 'a');
+    LIST_APPEND(chars, 'b');
+    LIST_APPEND(chars, 'c');
+    LIST_APPEND(chars, 'd');
+    LIST_APPEND(chars, 'e');
 
     printf("Lista: ");
     list_char_print(chars, print_char);
 
-    list_char_destroy(chars);
+    LIST_DESTROY(chars);
     return 0;
 }

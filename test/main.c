@@ -1,7 +1,7 @@
 #include <check.h>
 #include <stdlib.h>
 #define LINKED_LIST_IMPLEMENTATION
-#include "linkedlist.h"
+#include "linked_list.h"
 
 // Función auxiliar para imprimir enteros (usada en pruebas)
 void print_int(int value) {
@@ -37,9 +37,11 @@ START_TEST(test_append_and_length) {
     ck_assert_uint_eq(list_int_length(list), 2);
     
     list_int_destroy(list);
-    ck_assert_ptr_null(list);
+    list = NULL;  // Asegúrate de poner el puntero a NULL después de destruir la lista
+    ck_assert_ptr_null(list);  // Ahora la aserción pasará porque list es NULL
 }
 END_TEST
+
 
 START_TEST(test_insert_and_get) {
     List_int* list = list_int_create();
